@@ -27,8 +27,8 @@ var AssignmentSchema = new mongoose.Schema({
     })
  })
  
- router.delete('/:id', function (req, res) {
-    Assignment.deleteOne({ id: req.params.id }, function (err, result) {
+ router.delete('/:_id', function (req, res) {
+    Assignment.deleteOne({ _id: req.params._id }, function (err, result) {
        res.send(result)
     })
  })
