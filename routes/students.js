@@ -53,7 +53,7 @@ router.get('/search/:keyword', function (req, res) {
 
 
 router.get('/search', function(req, res){
-   Student.find({name: {$regex: req.query.name}}, function(err, students){
+   Student.find({id: {$regex: req.query.id}}, function(err, students){
        res.send(students)
    })
 })
