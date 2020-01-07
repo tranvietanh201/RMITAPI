@@ -35,7 +35,7 @@ var AssignmentSchema = new mongoose.Schema({
  
  router.put('/', function (req, res) {
    const filter = {name:req.body.name};
-   const update = {description:req.body.description, percentage:req.body.percentage};
+   const update = {percentage:req.body.percentage,description:req.body.description};
     Assignment.findOneAndUpdate(filter,update, function (err, result) {
        res.send(result)
     })
