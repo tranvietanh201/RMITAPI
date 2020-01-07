@@ -27,9 +27,9 @@ router.get('/', function (req, res) {
    })
 })
 
-router.get('/admin', function (req, res) {
-   Project.find({}, function (err, projects) {
-      res.render('Admin.jsx');
+router.get('/:_id', function (req, res) {
+   Project.findOne({_id:req.param._id}, function (err, projects) {
+      res.send(projects)
    })
 })
 
