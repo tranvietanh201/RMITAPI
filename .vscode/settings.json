@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/54f2bf31-66cf-45ec-9ae1-c7f94fc3b137/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/rmitbackend",
+    "appService.deploySubpath": ""
+}
