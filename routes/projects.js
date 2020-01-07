@@ -48,7 +48,7 @@ router.delete('/:_id', function (req, res) {
 router.put('/', function (req, res) {
    const filter = {name:req.body.name};
    const update = {industrial_link: req.body.industrial_link, scope: req.body.scope ,
-   semester:req.body.semester, description:req.body.description,technology:req.body.technology,student:req.body.student, course:req.body.course, assignment:req.body.assignment};
+   semester:req.body.semester, description:req.body.description,technology:req.body.technology,student:req.body.student, course:req.body.course, assignment:req.body.assignment, application:req.body.application};
 
    Project.findOneAndUpdate(filter,update,function (err, result) {
       res.send(result)
