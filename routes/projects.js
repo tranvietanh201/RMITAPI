@@ -1,4 +1,3 @@
-
 const app = require('express');
 
 const router = app.Router();
@@ -27,9 +26,9 @@ router.get('/', function (req, res) {
    })
 })
 
-router.get('/:_id', function (req, res) {
-   Project.findOne({_id:req.param._id}, function (err, projects) {
-      res.send(projects)
+router.get('/admin', function (req, res) {
+   Project.find({}, function (err, projects) {
+      res.render('Admin.jsx');
    })
 })
 
@@ -48,13 +47,12 @@ router.delete('/:_id', function (req, res) {
 router.put('/', function (req, res) {
    const filter = {name:req.body.name};
    const update = {industrial_link: req.body.industrial_link, scope: req.body.scope ,
-   semester:req.body.semester, description:req.body.description,technology:req.body.technology,student:req.body.student, course:req.body.course, assignment:req.body.assignment, application:req.body.application};
+   semester:req.body.semester, description:req.body.description,technology:req.body.technology,student:req.body.student, course:req.body.course, assignment:req.body.assignment};
 
    Project.findOneAndUpdate(filter,update,function (err, result) {
       res.send(result)
    })
 })
-
 
 router.get('/search', function(req, res){
    if (req.query.name != undefined){
@@ -84,6 +82,21 @@ router.get('/search', function(req, res){
    }
    if(req.query.technology != undefined){
       Project.find({technology: {$regex: req.query.technology}}, function(err, result){
+         res.send(result)
+     })
+   }
+   if(req.query.student != undefined){
+      Project.find({student: {$regex: req.query.student}}, function(err, result){
+         res.send(result)
+     })
+   }
+   if(req.query.assignment != undefined){
+      Project.find({assignment: {$regex: req.query.assignment}}, function(err, result){
+         res.send(result)
+     })
+   }
+   if(req.query.course != undefined){
+      Project.find({course: {$regex: req.query.course}}, function(err, result){
          res.send(result)
      })
    }
