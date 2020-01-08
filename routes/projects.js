@@ -56,18 +56,6 @@ router.put('/', function (req, res) {
 })
 
 
-router.get('/search/:keyword', function (req, res) {
-   Project.find({ course: req.params.course }, function (err, result) {
-      res.send(result)
-   })
-})
-
-router.get('/search', function(req, res){
-   Project.find({scope: {$regex: req.query.scope}}, function(err, result){
-       res.send(result)
-   })
-})
-
 router.get('/search', function(req, res){
    if (req.query.name != undefined){
       Project.find({name: {$regex: req.query.name}}, function(err, result){
